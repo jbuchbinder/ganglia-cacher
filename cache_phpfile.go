@@ -5,6 +5,8 @@ import (
 	"io/ioutil"
 )
 
+// TODO: FIXME: PHP serialization is busted, since it doesn't accept reflection for objects
+
 func init() {
 	CacheMap["phpfile"] = func() CacheInterface {
 		return new(CachePhpFile)
@@ -13,6 +15,10 @@ func init() {
 
 type CachePhpFile struct {
 	LocalFilename string
+}
+
+func (self *CachePhpFile) Configure(conf string) {
+	self.LocalFilename = conf
 }
 
 func (self *CachePhpFile) Connect() {

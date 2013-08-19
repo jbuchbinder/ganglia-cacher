@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"github.com/bradfitz/gomemcache/memcache"
 	"os"
+	"strings"
 	"time"
 )
 
@@ -17,6 +18,10 @@ func init() {
 type CacheMemcache struct {
 	Servers []string
 	Client  *memcache.Client
+}
+
+func (self *CacheMemcache) Configure(conf string) {
+	self.Servers = strings.Split(conf, ",")
 }
 
 func (self *CacheMemcache) Connect() {

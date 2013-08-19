@@ -15,6 +15,10 @@ type CacheFile struct {
 	LocalFilename string
 }
 
+func (self *CacheFile) Configure(conf string) {
+	self.LocalFilename = conf
+}
+
 func (self *CacheFile) Connect() {
 }
 

@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"log"
 	"strings"
 )
 
@@ -15,13 +16,14 @@ var (
 )
 
 type CacheInterface interface {
+	Configure(string)
 	Connect()
 	Write(CacheObj) error
 }
 
 // Resolves CacheInterface objects based on their string names.
 func GetCache(c string) CacheInterface {
-	fmt.Println("Selecting cache backend using: '" + c + "'")
+	log.Print("Selecting cache backend using: '" + c + "'")
 	cName := strings.TrimSpace(c)
 	if _, exists := CacheMap[cName]; exists {
 		return CacheMap[cName]()
