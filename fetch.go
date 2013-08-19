@@ -3,7 +3,6 @@ package main
 import (
 	"encoding/xml"
 	"fmt"
-	//"io/ioutil"
 	"net"
 )
 
@@ -12,14 +11,6 @@ func GetGmetadXml(server string, port int) (GangliaXml, error) {
 	if err != nil {
 		return GangliaXml{}, err
 	}
-
-	// Download all content
-	/*
-		body, err := ioutil.ReadAll(conn)
-		if err != nil {
-			return GangliaXml{}, err
-		}
-	*/
 
 	// Parse and unmarshal
 	var x GangliaXml
