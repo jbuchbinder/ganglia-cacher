@@ -1,6 +1,7 @@
 package main
 
 import (
+	"encoding/json"
 	"encoding/xml"
 	"flag"
 	"fmt"
@@ -23,6 +24,16 @@ func main() {
 		}
 		pt, err := xml.MarshalIndent(gx, " ", "  ")
 		fmt.Println(string(pt))
+
+		fmt.Println("##### CONVERTING TO JSON CACHE #####")
+
+		c, err := ConvertXmlToCache(gx)
+		if err != nil {
+			panic(err)
+		}
+		jt, err := json.MarshalIndent(c, " ", "  ")
+		fmt.Println(string(jt))
+
 		return
 	}
 }

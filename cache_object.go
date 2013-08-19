@@ -5,10 +5,7 @@ import (
 )
 
 type CacheObj struct {
-	Hosts   []CacheHostsObj     `json:"hosts"`
-	Cluster map[string]string   `json:"cluster"`
+	Hosts   []string            `json:"hosts"`
+	Cluster map[string][]string `json:"cluster"`
 	Metrics map[string][]string `json:"metrics"`
-}
-
-type CacheHostsObj struct {
 }
