@@ -5,4 +5,5 @@ go:
   - tip
 install:
   - go get github.com/bradfitz/gomemcache/memcache
+  - go get github.com/reiver/go-php
   - go build

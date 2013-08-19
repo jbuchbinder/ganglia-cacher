@@ -1,8 +1,11 @@
 # GANGLIA-CACHER
 
+Caching mechanism for [ganglia-web](https://github.com/ganglia/ganglia-web) cache information, independent of the PHP mechanism.
+
 ## BUILDING
 
 ```
+go get github.com/reiver/go-php
 go get github.com/bradfitz/gomemcache/memcache
 go build
 ```
