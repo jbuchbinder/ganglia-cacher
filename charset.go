@@ -6,6 +6,8 @@ import (
 	"strings"
 )
 
+// Parse ISO8859-1 encoded XML, from http://stackoverflow.com/questions/6002619/unmarshal-an-iso-8859-1-xml-input-in-go
+
 type CharsetISO88591er struct {
 	r   io.ByteReader
 	buf *bytes.Buffer
