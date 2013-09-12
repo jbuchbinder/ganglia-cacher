@@ -1,5 +1,7 @@
 # GANGLIA-CACHER
 
+[![Build Status](https://secure.travis-ci.org/jbuchbinder/ganglia-cacher.png)](http://travis-ci.org/jbuchbinder/ganglia-cacher)
+
 Caching mechanism for [ganglia-web](https://github.com/ganglia/ganglia-web) cache information, independent of the PHP mechanism.
 
 ## BUILDING
