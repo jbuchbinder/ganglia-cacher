@@ -16,7 +16,9 @@ func GetGmetadXml(server string, port int) (GangliaXml, error) {
 	var x GangliaXml
 	decoder := xml.NewDecoder(conn)
 	decoder.CharsetReader = CharsetReader
+	b := NewTimerWithLabel("Decode XML")
 	err = decoder.Decode(&x)
+	b.StopLog()
 	if err != nil {
 		return GangliaXml{}, err
 	}

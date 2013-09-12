@@ -73,7 +73,7 @@ func main() {
 	}
 
 	log.Print("Converting to cache format")
-	b = NewTimer()
+	b = NewTimerWithLabel("ConvertXmlToCache")
 	c, err := ConvertXmlToCache(gx)
 	b.StopLog()
 	if err != nil {
@@ -87,6 +87,8 @@ func main() {
 	log.Print("Calling Connect()")
 	cache.Connect()
 	log.Print("Calling Write()")
+	bW := NewTimerWithLabel("Write()")
 	cache.Write(c)
+	bW.StopLog()
 	log.Print("Completed cache run")
 }

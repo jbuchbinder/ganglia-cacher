@@ -7,6 +7,7 @@ import (
 
 type Benchmark struct {
 	Timer time.Time
+	Label string
 }
 
 func NewTimer() Benchmark {
@@ -15,7 +16,18 @@ func NewTimer() Benchmark {
 	return b
 }
 
+func NewTimerWithLabel(label string) Benchmark {
+	b := Benchmark{}
+	b.Timer = time.Now()
+	b.Label = label
+	return b
+}
+
 func (self *Benchmark) StopLog() {
 	e := time.Since(self.Timer)
-	log.Printf("Duration : %s", e.String())
+	if self.Label != "" {
+		log.Printf("[%s] Duration : %s", self.Label, e.String())
+	} else {
+		log.Printf("Duration : %s", e.String())
+	}
 }

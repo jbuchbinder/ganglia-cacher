@@ -13,6 +13,7 @@ func ConvertXmlToCache(x GangliaXml) (CacheObj, error) {
 	c.Metrics = make(map[string][]string)
 
 	// Create cluster map
+	bCM := NewTimerWithLabel("Cluster map")
 	for _, gv := range x.Grid {
 		for _, cv := range gv.Cluster {
 			for _, hv := range cv.Hosts {
@@ -36,8 +37,10 @@ func ConvertXmlToCache(x GangliaXml) (CacheObj, error) {
 			}
 		}
 	}
+	bCM.StopLog()
 
 	// Collapse down map values to array
+	bMA := NewTimerWithLabel("Map to Array")
 	c.Hosts = []string{}
 	for _, chv := range hosts {
 		if len(chv) > 2 {
@@ -45,6 +48,7 @@ func ConvertXmlToCache(x GangliaXml) (CacheObj, error) {
 		}
 	}
 	sort.Strings(c.Hosts)
+	bMA.StopLog()
 
 	return c, nil
 }
