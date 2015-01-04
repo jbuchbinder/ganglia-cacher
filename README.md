@@ -2,6 +2,8 @@
 
 [![Build Status](https://secure.travis-ci.org/jbuchbinder/ganglia-cacher.png)](http://travis-ci.org/jbuchbinder/ganglia-cacher)
 
+[![Gobuild Download](http://gobuild.io/badge/github.com/jbuchbinder/ganglia-cacher/downloads.svg)](http://gobuild.io/github.com/jbuchbinder/ganglia-cacher)
+
 Caching mechanism for [ganglia-web](https://github.com/ganglia/ganglia-web) cache information, independent of the PHP mechanism.
 
 ## BUILDING
